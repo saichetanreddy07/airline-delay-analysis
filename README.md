@@ -1,274 +1,52 @@
-# ✈️ Airline Delay Analysis: Identifying Operational Bottlenecks and Improving On-Time Performance
+# Airline Delay Analysis
 
-> An end-to-end Data Analytics project that explores airline operational performance through Exploratory Data Analysis (EDA), data cleaning, and visualization to identify delay patterns, operational bottlenecks, and key factors affecting on-time performance.
+## Project Overview
 
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
-![Python](https://img.shields.io/badge/Python-3.x-blue)
-![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458)
-![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-orange)
-![Seaborn](https://img.shields.io/badge/Seaborn-Statistical%20Plots-4C72B0)
+This project explores U.S. airline flight records to understand flight operations, delays, cancellations, and diversions. Three Jupyter notebooks document data inspection, cleaning and preprocessing, and exploratory data analysis (EDA). The analysis uses Python and prepared CSV files stored in the repository.
 
----
+## Objectives
 
-# 📖 Project Overview
+- Inspect the flight dataset and select fields relevant to delay analysis.
+- Prepare the selected data for analysis by handling missing values and data types.
+- Explore flight status, airline and airport activity, delay patterns and causes, cancellations, and time-based trends.
 
-Flight delays significantly impact airlines, airports, and passengers by increasing operational costs, reducing customer satisfaction, and disrupting schedules.
+## Dataset Used
 
-This project analyzes airline delay data to uncover:
+The repository includes a raw CSV with 2,000,000 flight records and 109 columns, along with selected and cleaned versions. The selected dataset contains 27 fields covering flight dates, airlines, origin and destination, delays and delay causes, cancellation and diversion status, and distance. The cleaned dataset contains 1,998,955 records after rows missing origin or destination state were removed.
 
-- Delay trends
-- Operational bottlenecks
-- Delay causes
-- Airport performance
-- Airline performance
-- Seasonal and temporal patterns
+## Tools & Technologies
 
-The project follows a structured data analytics workflow:
+- Python 3.12
+- Jupyter Notebook
+- pandas and NumPy
+- Matplotlib and Seaborn
+- CSV
 
-1. Data Understanding
-2. Data Cleaning & Preprocessing
-3. Exploratory Data Analysis (EDA)
-4. Business Insights
+## Project Workflow
 
----
+1. **Data loading and understanding:** Load the raw CSV, inspect its shape, columns, data types, missing values, duplicates, and descriptive statistics.
+2. **Feature selection:** Keep 27 fields related to dates, airlines, airports, delays, flight status, and distance.
+3. **Cleaning and preprocessing:** Remove rows missing origin or destination state; fill missing delay-cause values with zero; convert `FlightDate` to datetime and selected text fields to categorical types; save the cleaned CSV.
+4. **Exploratory analysis:** Summarize and visualize flight status, airline and airport activity, delay distributions and causes, cancellations, and monthly and weekly delay patterns.
 
-# 🎯 Objectives
+## Files in the Repository
 
-- Understand the airline delay dataset.
-- Clean and preprocess raw flight data.
-- Perform comprehensive Exploratory Data Analysis (EDA).
-- Identify major causes of flight delays.
-- Analyze airline and airport performance.
-- Generate actionable business insights for improving on-time performance.
+- `dataset/raw/airline_delay.csv`: Raw flight records (2,000,000 rows, 109 columns).
+- `dataset/processed/airline_delay_selected.csv`: Selected 27 analysis fields before cleaning.
+- `dataset/processed/airline_delay_cleaned.csv`: Cleaned selected data used by the EDA notebook.
+- `notebooks/1. Data_Understanding.ipynb`: Inspects the raw data and creates the selected dataset.
+- `notebooks/2. Data Cleaning & Preprocessing.ipynb`: Cleans the selected dataset and saves the cleaned file.
+- `notebooks/3. Exploratory Data Analysis (EDA).ipynb`: Performs summary analysis and creates charts.
+- `.gitignore`: Lists files and folders excluded from version control.
 
----
+## Key Insights
 
-# 🛠 Tech Stack
+The EDA notebook reports that most flights were completed, delay distributions are right-skewed, and NAS delays affect the most flights. Late aircraft delays contribute the most total delay minutes. The notebook also identifies variation in delays by airline, airport, month, and day of week.
 
-| Technology | Purpose |
-|------------|---------|
-| Python | Programming Language |
-| Pandas | Data Manipulation |
-| NumPy | Numerical Computing |
-| Matplotlib | Data Visualization |
-| Seaborn | Statistical Visualization |
-| Jupyter Notebook | Development Environment |
+## How to Run/View the Project
 
----
+1. Install Python 3.12 and Jupyter Notebook, plus `pandas`, `numpy`, `matplotlib`, and `seaborn`.
+2. Open the notebooks in order from the `notebooks` folder.
+3. Run each notebook's cells from top to bottom. The first notebook reads the raw CSV and writes the selected CSV; the second reads that selected file and writes the cleaned CSV; the EDA notebook reads the cleaned CSV.
 
-# 📂 Dataset
-
-This project uses the **Carrier On-Time Performance Dataset** available on Kaggle.
-
-The dataset is a large sample of U.S. domestic flight records derived from the **U.S. Bureau of Transportation Statistics (BTS) – Reporting Carrier On-Time Performance Database**. It contains detailed information about flight schedules, delays, cancellations, airlines, airports, and operational performance. :chatgpt-content-reference{index="1"}
-
-### Dataset Source
-
-https://www.kaggle.com/datasets/mexwell/carrier-on-time-performance-dataset
-
-### Dataset Features
-
-- Flight Date
-- Reporting Airline
-- Origin Airport
-- Destination Airport
-- Departure Delay
-- Arrival Delay
-- Carrier Delay
-- Weather Delay
-- NAS Delay
-- Security Delay
-- Late Aircraft Delay
-- Cancellation Status
-- Flight Distance
-- Taxi In / Taxi Out Time
-- Air Time
-- Flight Time Information
-
-> **Note:** The dataset is approximately **12 GB** and is **not included** in this repository. Please download it directly from Kaggle using the link above before running the notebooks. :chatgpt-content-reference{index="2"}
-
-# 🚀 Project Workflow
-
-## 📘 Notebook 1 — Data Understanding
-
-The first notebook focuses on understanding the raw dataset.
-
-### Tasks Performed
-
-- Imported dataset
-- Checked dataset dimensions
-- Inspected data types
-- Identified numerical and categorical columns
-- Explored column names
-- Checked missing values
-- Generated descriptive statistics
-- Initial data exploration
-
----
-
-## 🧹 Notebook 2 — Data Cleaning & Preprocessing
-
-The second notebook prepares the dataset for analysis.
-
-### Tasks Performed
-
-- Missing value analysis
-- Duplicate record detection
-- Data type validation
-- Statistical summary
-- Data quality checks
-- Dataset preprocessing
-- Prepared cleaned dataset for EDA
-
----
-
-## 📊 Notebook 3 — Exploratory Data Analysis (EDA)
-
-The final notebook explores the cleaned dataset to identify meaningful trends and business insights.
-
-### Analysis Includes
-
-- Delay distribution
-- Airline performance comparison
-- Airport performance analysis
-- Delay type analysis
-- Time-based trends
-- Operational performance evaluation
-- Business insights through visualizations
-
----
-
-# 📈 Exploratory Data Analysis
-
-The analysis focuses on understanding airline operational efficiency through visual exploration.
-
-### Key Areas Explored
-
-- Flight delay distribution
-- Arrival vs Departure delays
-- Carrier delay analysis
-- Weather-related delays
-- NAS delay analysis
-- Security delays
-- Late aircraft delays
-- Airline performance
-- Airport performance
-- Flight volume analysis
-- Delay frequency
-- Outlier detection
-
----
-
-# 💡 Business Questions Addressed
-
-- Which airlines experience the highest delays?
-- Which airports contribute the most to flight delays?
-- What are the primary causes of delays?
-- How are delays distributed across flights?
-- Which operational factors affect on-time performance?
-- What insights can help improve airline efficiency?
-
----
-
-# 📊 Visualizations
-
-The project includes multiple visualizations created using Matplotlib and Seaborn, such as:
-
-- Histograms
-- Count Plots
-- Bar Charts
-- Box Plots
-- Scatter Plots
-- Correlation Analysis
-- Distribution Plots
-
----
-
-# 🎯 Skills Demonstrated
-
-## Data Analysis
-
-- Exploratory Data Analysis (EDA)
-- Statistical Analysis
-- Data Profiling
-- Trend Analysis
-
-### Data Cleaning
-
-- Missing Value Analysis
-- Duplicate Detection
-- Data Validation
-- Data Preprocessing
-
-### Python
-
-- Pandas
-- NumPy
-- Matplotlib
-- Seaborn
-
-### Business Analytics
-
-- Root Cause Analysis
-- Operational Analysis
-- Performance Evaluation
-- Business Storytelling
-
----
-
-# 📚 Learning Outcomes
-
-Through this project, I gained hands-on experience in:
-
-- Data Understanding
-- Data Cleaning
-- Data Preprocessing
-- Exploratory Data Analysis
-- Data Visualization
-- Statistical Exploration
-- Business Insight Generation
-- Analytical Thinking
-- Data Storytelling
-
----
-
-# 📷 Project Preview
-
-Screenshots and visualizations will be added here.
-
-```text
-images/
-│
-├── delay_distribution.png
-├── airline_performance.png
-├── airport_analysis.png
-├── delay_causes.png
-└── correlation_heatmap.png
-```
-
----
-
-# 🚀 Future Enhancements
-
-- Interactive Power BI Dashboard
-- Geographic Flight Delay Analysis
-- Predictive Delay Modeling
-- Machine Learning Classification
-- Time Series Forecasting
-- Dashboard Deployment
-
----
-
-# 👨‍💻 Author
-
-**Sai Chetan Reddy**
-
-Computer Science (Artificial Intelligence) Graduate
-
-GitHub: https://github.com/saichetanreddy07
-
-LinkedIn: *Add your LinkedIn profile here*
-
----
-
-## ⭐ If you found this project useful, consider giving it a star!
+The project contains no SQL scripts or Power BI (`.pbix`) file.
